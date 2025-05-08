@@ -232,7 +232,7 @@ const App: React.FC = () => {
 
     if (remainingCount !== 1) {
       // Probability of randomly guessing correctly
-    const probabilityCorrect = 1 / remainingCount;
+    //const probabilityCorrect = 1 / remainingCount;
 
     // Estimate entropy reduction for the guess
     //const entropyReduction = -probabilityCorrect * Math.log2(probabilityCorrect);
