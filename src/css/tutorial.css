@@ -1,0 +1,102 @@
+.container{
+    background: linear-gradient(135deg, #b0d8f3, #59a7e7);
+}
+.tutorial-container {
+    background: linear-gradient(to bottom right, #fdf6e3, #f5d9ab);
+    border-radius: 12px;
+    padding: 2rem;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    height: 25%;
+    width: 50%;
+    min-width: 700px;
+    min-height: 400px;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #333333;
+    border: 2px solid #f0b763;
+    font-size: large;
+
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tutorial-container h2 {
+    margin-bottom: 1rem;
+    font-size: 2.5em;
+    color: #d87518;
+  }
+
+  .tutorial-container p {
+    font-size: 1.2em;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .tutorial-container button{
+    margin-top: auto; 
+    padding: 12px 20px;
+    font-size: 1em;
+    background-color: #e67845;
+    border: none;
+    padding-bottom: 10px;
+    border-radius: 6px;
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .tutorial-container button:hover {
+    background-color: #d45d28;
+  }
+
+
+  @media (max-width: 768px) {
+    .tutorial-container {
+      top: 10%;
+      left: 5%;
+      width: 90%;
+      height: auto;
+      min-width: unset;
+      min-height: unset;
+      padding: 1.5rem;
+      font-size: medium;
+    }
+  
+    .tutorial-container h2 {
+      font-size: 1.8em;
+    }
+  
+    .tutorial-container p {
+      font-size: 1em;
+    }
+  
+    .tutorial-container button {
+      font-size: 0.95em;
+      padding: 10px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tutorial-container {
+      top: 5%;
+      left: 2.5%;
+      width: 95%;
+      padding: 1rem;
+    }
+  
+    .tutorial-container h2 {
+      font-size: 1.6em;
+    }
+  
+    .tutorial-container p {
+      font-size: 0.95em;
+    }
+  
+    .tutorial-container button {
+      font-size: 0.9em;
+      padding: 8px 14px;
+    }
+  }
+  

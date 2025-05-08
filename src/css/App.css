@@ -1,0 +1,690 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures proper element sizing */
+}
+
+.container {
+  text-align: center;
+  display: flex; 
+  min-height: 100vh; /* Makes it so page fits to the screen */
+  min-width: 100vw; /* Makes it so page fits to the screen */
+  color: white; 
+}
+
+.sub-sections {
+  flex-direction: column; /* Vertical stacking */
+  height: 100%; 
+  overflow: hidden;
+}
+
+/* QUESTION SECTION */
+.question-section{
+  min-width: 25vw;
+  min-height: 100vh;
+  background: #f8b464; /* Gradient effect */
+  border-right: 3px solid #ffb686;; /* Subtle separation */
+}
+
+.attributes{
+  color: white;
+  background-color: #f0b763;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.attributes button{
+  display: flex;
+  align-items: center; /* Puts text in middle of the button verticaly */
+  justify-content: center; /* Puts text in middle of the button horizontaly */
+  flex-grow: 1; /* Makes each button grow to fill available space equally */
+  outline: 5px auto #ffb686;
+  color: #333333;
+  background-color: #f1dbba;
+  width: 100%;
+}
+
+.attributes button:hover {
+  background: rgba(133, 133, 133, 0.2);
+}
+
+.question-button.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  border: 2px solid #ffb686;;
+}
+
+.question-button.selected {
+  border: 5px solid #ffb686;; 
+}
+
+.back-button:hover {
+  background-color: #f89d35;
+}
+
+/* GUESS SECTION */
+.guess-section{
+  min-width: 37.5vw;
+  min-height: 100vh;
+}
+
+/* GRID SECTION */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto); /* 3 Columns */
+  grid-template-rows: repeat(7, auto);  /* 5 Rows */
+  width: 100%;
+  height: 100%;
+  border: #ffb686 1% solid;
+}
+
+.grid-item {
+  background-color: #ffb686;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s; /* Smooth transition */
+  overflow: hidden; /* Prevent items from overflowing */
+}
+
+.grid-item.selected {
+  transform: scale(0.90); 
+}
+
+.grid-item.faded {
+  opacity: 0.6; /* Reduce opacity */
+  pointer-events: none; /* Prevent interaction */
+}
+
+.grid-item img {
+  width: 99%; 
+  height: 99%;
+}
+
+/* TREE SECTION */
+.tree-section{
+  min-width: 37.5vw;
+  min-height: 100vh;
+  background-color: #e67845;
+}
+
+/* UPPER SECTION */
+.upper-section{
+  border-bottom: 0.5vh solid #ffb686;
+  height: 10vh;
+  background-color: #e67153;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  white-space: normal; 
+  overflow: hidden; 
+  min-height: 50px; 
+  padding: 5px;
+  height: 10vh
+}
+
+.title-text {
+  font-size: 2rem;
+  word-break: break-word; /* Ensure text doesn't overflow */
+  text-align: center;
+}
+
+/* MIDDLE SECTION */
+.middle-section{
+  height: 80vh;
+  background-color: #f0b763;
+}
+
+/* MIDDLE for Guessing */
+.guess-middle-section{
+  height: 100vh;
+  background-color: rgb(29, 29, 29);
+}
+
+/* MIDDLE for Guessing */
+.tree-middle-section{
+  height: 90vh;
+  background-color: #f1dbba;
+}
+
+/* BOTTOM SECTION */
+.bottom-section{
+  height: 10vh;
+  background-color: #d87518;
+}
+
+.select-buttons{
+  display: flex;
+  height: 100%;
+}
+
+.select-buttons button{
+  width: 100%;
+  height: 100%;
+  background-color: #f0b763;
+}
+
+/* Modal */
+/* RECAP SECTION */
+
+.overlay {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #b0d8f3, #59a7e7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1000;
+}
+
+.info-overlay {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #b0d8f3, #59a7e7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1000;
+}
+
+.recap-container {
+  display: flex;
+  flex-direction: row; /* Horizontally align the sections */
+  display: flex; 
+  background: #f1dbba;
+  border-radius: 10px;
+  text-align: center;
+  width: 60%;
+  min-width: 900px;
+  min-height: 600px;
+  height: 50%;
+}
+
+.congrats-message {
+  border: black 1px solid; 
+  width: 100%;
+}
+
+.congrats-text{
+  width: 100%;
+  height: 90%;
+  font-size: 2.5em;
+  color: #333333;
+}
+
+.congrats-text h2 {
+  position: relative;
+  min-width: 400px;
+  text-align: center;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 98, 223, 0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1em;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.congrats-text p{
+  font-size: 1.5em;
+  padding-bottom: 0.5vw;
+}
+
+.recap-content{
+  width: 70%;
+  font-size: 1em;
+  color: white;
+  border: black 1px solid; 
+}
+
+.question-container1 {
+  width: 100%;
+  font-size: 2.2em;
+  color: white;
+  border: black 1px solid; 
+}
+
+.recap-text h2 {
+  position: relative;
+  min-width: 400px;
+  text-align: center;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 98, 223, 0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recap-text{
+  width: 100%;
+  height: 90%;
+  font-size: 1.5em;
+  color: #333333;
+}
+
+/* Recap Circle Style */
+.recap-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.recap-stat-group {
+  color: #333333;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px; 
+  flex-direction: row;
+  align-items: center;
+}
+
+.recap-stat figcaption {
+  font-size: 0.9em;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.recap-stat .circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fdf6e3;
+  border: 2px solid #f0b763;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6em;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recap-text h2 {
+  color: white;
+}
+.recap-container ul {
+  list-style: none;
+}
+
+.recap-buttons {
+  height: 10%;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .recap-container {
+    flex-direction: column;
+    width: 90%;
+    min-width: unset;
+    min-height: unset;
+    height: auto;
+    padding: 1rem;
+    font-size: 1em;
+  }
+
+  .recap-content,
+  .question-container1,
+  .congrats-message {
+    width: 100%;
+    border: none;
+  }
+
+  .recap-text h2,
+  .congrats-text h2 {
+    font-size: 1.2em;
+    top: unset;
+    transform: none;
+    left: unset;
+    position: relative;
+  }
+
+  .recap-stat .circle {
+    width: 80px;
+    height: 80px;
+    font-size: 1.4em;
+  }
+
+  .recap-stat figcaption {
+    font-size: 0.8em;
+  }
+
+  .congrats-text p {
+    font-size: 1.2em;
+  }
+
+  .button1,
+  .congrats-button {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .recap-container {
+    padding: 0.5rem;
+    width: 95%;
+  }
+
+  .recap-text h2,
+  .congrats-text h2 {
+    font-size: 1.1em;
+    padding: 0.5rem;
+  }
+
+  .congrats-text p {
+    font-size: 1em;
+  }
+
+  .recap-stat .circle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.2em;
+  }
+
+  .recap-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button1,
+  .congrats-button {
+    font-size: 1em;
+    padding: 10px;
+  }
+}
+
+.congrats-button {
+  width: 100%;
+  height: 10%;
+  font-size: 1.75em;
+  background:  #f8b464;
+  color: white;
+  border: black 1px solid; 
+}
+
+.congrats-button:hover {
+  background: #f89d35; /* Darker green on hover */
+}
+.button1 {
+  width: 50%;
+  height: 100%;
+  font-size: 1.25em;
+  background: #f8b464;
+  color: white;
+  border: black 1px solid; 
+}
+
+.button1:hover {
+  background: #f89d35; /* Darker green on hover */
+}
+
+.prev-buttons, .next-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 15%; /* Adjust based on the width you want for the button sections */
+}
+
+.prev-btn, .next-btn {
+  width: 100%; /* Take up full width of the parent */
+  height: 100%; /* Take up full height of the parent */
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ce741f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prev-btn:disabled, .next-btn:disabled {
+  opacity: 0.2;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgb(255, 123, 0);
+}
+
+.optimal-tree-modal {
+  width: 100%;
+  text-align: center;
+}
+
+.optimal-tree-container {
+  width: 100%;  /* Ensures the optimal tree container takes up full width */
+  height: 90%;  /* Takes up most of the container height */
+  padding-bottom: 26px;
+}
+
+.optimal-tree-container .react-flow {
+  top: -10%;
+  height: 100%;
+}
+
+.optimal-tree-container h3 {
+  position: relative;
+  min-width: 400px;
+  text-align: center;
+  top: -12%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 98, 223, 0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.optimal-tree-recap-buttons {
+  height: 10%;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Updated Information Modal Styling */
+.info-modal {
+  background: linear-gradient(to bottom right, #fdf6e3, #f5d9ab);
+  padding: 25px;
+  border-radius: 12px;
+  color: #333;
+  width: 50%;
+  max-width: 600px;
+  min-width: 600px;
+  min-height: 400px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-in-out;
+  border: 2px solid #f0b763;
+  font-family: 'Poppins', sans-serif;
+}
+
+.info-modal-text {
+  margin-bottom: 20px;
+  font-size: 1.3em;
+  color: #2c3e50;
+}
+
+.info-modal h2 {
+  font-size: 1.7em;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  color: #d87518;
+}
+
+.info-modal p {
+  font-size: 1em;
+  color: #444;
+}
+
+.info-modal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-modal li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.info-modal li svg {
+  font-size: 1.3em;
+  color: #e67845;
+}
+
+@media (max-width: 768px) {
+  .tutorial-container,
+  .info-modal {
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: auto;
+    min-width: unset;
+    min-height: unset;
+    padding: 1.5rem;
+    font-size: 1em;
+  }
+
+  .tutorial-container h2,
+  .info-modal h2 {
+    font-size: 1.8em;
+  }
+
+  .tutorial-container p,
+  .info-modal p,
+  .info-modal-text {
+    font-size: 1em;
+  }
+
+  .tutorial-container button,
+  .close-modal-button {
+    font-size: 0.95em;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tutorial-container,
+  .info-modal {
+    top: 2.5%;
+    left: 2.5%;
+    width: 95%;
+    padding: 1rem;
+    font-size: 0.95em;
+  }
+
+  .tutorial-container h2,
+  .info-modal h2 {
+    font-size: 1.5em;
+  }
+
+  .tutorial-container p,
+  .info-modal p,
+  .info-modal-text {
+    font-size: 0.9em;
+  }
+
+  .tutorial-container button,
+  .close-modal-button {
+    font-size: 0.9em;
+    padding: 8px 14px;
+  }
+}
+
+
+.close-modal-button {
+  margin-top: 1em;
+  padding: 12px 20px;
+  font-size: 1em;
+  background-color: #e67845;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.close-modal-button:hover {
+  background-color: #d45d28;
+}
+
+/* INFO BUTTON */
+.info-button {
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.info-button:hover {
+  background-color: #f89d35;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 9999; /* Ensure it's above everything */
+  opacity: 1;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 160px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 120%; 
+  left: 50%;
+  font-size: 0.9rem;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
