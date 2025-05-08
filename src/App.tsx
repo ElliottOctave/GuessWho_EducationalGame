@@ -235,9 +235,9 @@ const App: React.FC = () => {
     const probabilityCorrect = 1 / remainingCount;
 
     // Estimate entropy reduction for the guess
-    const entropyReduction = -probabilityCorrect * Math.log2(probabilityCorrect);
+    //const entropyReduction = -probabilityCorrect * Math.log2(probabilityCorrect);
 
-    const maxGain = Math.log2(remainingCount); 
+    //const maxGain = Math.log2(remainingCount); 
     //setScore((prevScore) => prevScore + Math.round(normalizedScore));
     
     }
