@@ -10,11 +10,11 @@ interface InfoModalProps {
 const InfoModal: React.FC<InfoModalProps> = ({ isVisible, onClose }) => {
   if (!isVisible) return null; // Only render if visible
 
-  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  /*const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
-  };
+  };*/
 
   return (
     <div className="info-overlay" >

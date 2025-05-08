@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Title from './Title';
 import { allQuestions } from '../constants';
 import { Tooltip } from 'react-tooltip';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   selectedAttribute: 'Hair' | 'Facial Hair' | 'Accessory' | 'Gender' | null;

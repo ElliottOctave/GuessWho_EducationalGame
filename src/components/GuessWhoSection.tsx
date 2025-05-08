@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Title from './Title';
 import { Character, Attribute } from '../types';
 import { Tooltip } from 'react-tooltip';
 

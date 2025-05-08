@@ -53,7 +53,7 @@ const buildNodesAndEdges = (
   return { nodes, edges };
 };
 
-const DecisionTreeContent: React.FC<Props> = ({ selectedQuestion, lockQuestion, decisionTree, scoreText }) => {
+const DecisionTreeContent: React.FC<Props> = ({ decisionTree, scoreText }) => {
   const { setCenter } = useReactFlow();
   const { nodes, edges } = buildNodesAndEdges(decisionTree);
 

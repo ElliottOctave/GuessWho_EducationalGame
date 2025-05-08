@@ -238,7 +238,6 @@ const App: React.FC = () => {
     const entropyReduction = -probabilityCorrect * Math.log2(probabilityCorrect);
 
     const maxGain = Math.log2(remainingCount); 
-    const normalizedScore = (entropyReduction / maxGain) * 100; // Scale to 100 points
     //setScore((prevScore) => prevScore + Math.round(normalizedScore));
     
     }
